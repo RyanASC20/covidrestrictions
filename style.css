@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(185, 185, 185);
+}
+
+#map {
+    position: relative;
+    height: 100vh;
+}
+
+.head {
+    font-family: Roboto;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.popup {
+    background: rgb(103, 103, 107);
+    padding: 1em;
+    border-radius: 5px;
+    color: white;
+}
+
+.state-name {
+    font-size: 1.5em;
+}
+
+.cases-head {
+    font-weight: bold;
+}
+
+.case-val {
+    letter-spacing: 0.05em;
+    color: red;
+}
