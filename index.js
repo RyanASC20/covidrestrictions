@@ -1,18 +1,6 @@
-const handleSearch = data => {
-    const search = $('.search');
-    $('form').submit(e => {
-        e.preventDefault()
-    })
-    search.keyup(() => {
-        console.log(search.val().toLowerCase())
-        console.log(data.filter(e => e.state.toLowerCase().indexOf(search.val().toLowerCase()) != -1))
-    })
-}
-
-
 const handleUrls = url => `<a href=${url}>(View source)</a>`;
 const handleDates = d => {
-    let f = '<br><br>';
+    let f = '';
     for (let i = 0; i < d.length; i++) {
         f += d[i]
         if (i == 3 || i == 5) {
@@ -22,11 +10,6 @@ const handleDates = d => {
     return `<span class='date'>${f}</span>`;
 }
 
-const handleFullDates = d => {
-    const monthNames = ["January", "February", "March", "April", "May", "June", 
-                        "July", "August", "September", "October", "November", "December"];
-    return 
-}
 
 const addEmphasis = s => {
     return `<span class='highlight'>${s}</span>`;
@@ -34,12 +17,14 @@ const addEmphasis = s => {
 
 const cleanGuidelines = gl => {
     let w = gl.split(' ');
-    
     for (let i = 0; i < w.length; i++) {
         if (w[i].slice(0,4) == 'http') {
             w[i] = handleUrls(w[i]);
-        } else if (w[i].slice(0,4) == '2020') {
+        } else if (w[i].indexOf('2020') != -1) {
             w[i] = handleDates(w[i]);
+            if (w[i-1] == 'On') {
+                w[i-2] += '<br><br>';
+            }
         } else if ( w[i] === 'covering'
             || w[i].indexOf('mask') !== -1
             || w[i].indexOf('travel') !== -1
@@ -63,10 +48,15 @@ const displayGuidelineData = data => {
 }
 
 
+const hideInfo = () => {
+    $('.info-container').css({'display': 'none'});
+    $('#modal-mask').css({'display': 'none'});
+}
 
 
 const info = (selection, guidelineData) => {
-    $('#info-card').css({'display': 'block'});
+    hideAbout();
+    $('.info-container').css({'display': 'block', 'opacity': '1'});
     $('#info-county').text(`${selection.countyName}, `);
     $('#info-state').text(`${selection.state}`);
     let caseCounter = 0;
@@ -78,17 +68,42 @@ const info = (selection, guidelineData) => {
         $('#info-cases').text(`${parseInt(caseCounter).toLocaleString()}`);
         caseCounter += selection.cases/100;
     }, 2);
+    $('#source').attr('href', sources[selection.state]).text('View Current Travel Advisories Here');
     $('#info-deaths').text(`${parseInt(selection.deaths).toLocaleString()}`);
 
     displayGuidelineData(guidelineData);
+    if ($(window).width() <= 1050) {
+        // $('#modal-mask').css({'display': 'block'});
+    }
+    $('.exit').click(hideInfo);
 }
+
+
+const showAbout = () => {
+    $('.about-container').css({'display':'block'});
+
+    $('#about')
+        .html("This website was made to assist those travelling during the Covid-19 pandemic. The map shows every county in the United States, color coded based on the number of new cases in the past week. The green counties have an increase of less than or equal to 0 cases in the past week. By clicking on a county, the cases and deaths in that county are displayed, as well as a link to the state's travel guidelines. Below, there are general notes from that state.");
+    $('#about')
+        .append('<p>Covid-19 data is pulled from the <a href="https://github.com/nytimes/covid-19-data" target="_blank">NY Times</a>, and notes are pulled from <a href="https://github.com/COVID19StatePolicy/SocialDistancing" target="_blank">Covid19StatePolicy</a></p>')
+        .append('<p>Click on a county to begin!</p>')
+    $('.exit').click(hideAbout);
+}
+
+
+const hideAbout = () => {
+    $('.about-container').css({'display':'none'});
+}
+
+showAbout();
+$('#nav-about').click(() => {showAbout(); hideInfo()});
 
 
 const mapData = guidelineData => {
     // const DATA_URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/live/us-counties.csv';
     const DATA_URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv';
     const d = new Date();
-    let PREVIOUS_DATE = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()-8}`;
+    let PREVIOUS_DATE = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()-9}`;
     let CURRENT_DATE = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()-2}`;
     const previousDateData = {};
     d3.csv(DATA_URL, function(response) {
@@ -128,9 +143,9 @@ const mapData = guidelineData => {
 }
 
 
-const drawMap = (covidData, guidelineData) => {
+const drawMap = (covidData, guidelineData, populationData) => {
     const WIDTH = 940; // 940
-    const HEIGHT = 610;
+    const HEIGHT = 600;
     const svg = d3.select('#map').attr('viewBox', `0 0 ${WIDTH} ${HEIGHT}`).append('g').attr('viewBox', '0 0 980 610');
     const zoom = d3.zoom()
             .scaleExtent([1, 4])
@@ -144,9 +159,11 @@ const drawMap = (covidData, guidelineData) => {
     const COUNTY_BORDER = 'white';
     const STATE_BORDER = 'grey';
     const HIGHLIGHT = 'grey';
-    const COLOR_DOMAIN = [0, 500, 1000, 1500, 2000, 2500, 3000, 4500, 5000, 5500, 6000];
-    const COLOR_RANGE = ['#yellow', '#f2dc94', '#f5d671', '#ffd13b', '#ffb60d', '#ff9e0d', '#ff8a0d', '#ff760d', '#ff620d', '#ff4a0d', '#ff350d']
+    // const COLOR_DOMAIN = [0, 300, 600, 900, 1200, 1500, 1800, 2100, 2400, 2700, 3000];
+    const COLOR_DOMAIN = [0, 3000];
 
+    // const COLOR_RANGE = ['#yellow', '#f2dc94', '#f5d671', '#ffd13b', '#ffb60d', '#ff9e0d', '#ff8a0d', '#ff760d', '#ff620d', '#ff4a0d', '#ff350d']
+    const COLOR_RANGE = ['#ffd6b3', '#ff0000'];
 
     d3.json('https://d3js.org/us-10m.v1.json')
         .then(data => {
@@ -165,7 +182,6 @@ const drawMap = (covidData, guidelineData) => {
                 let toolTip = d3.select('#tooltip');
                 let selection = covidData.find(e => e.fips == county.id);
                 
-
                 svg 
                     .append('path')
                     .datum(county)
@@ -176,8 +192,14 @@ const drawMap = (covidData, guidelineData) => {
                             .domain(COLOR_DOMAIN)
                             .range(COLOR_RANGE)
                         let match = covidData.find(e => e.fips == d.id);
+                        // let population = populationData.find(e => e.county)
                         if (match)
-                            return c(match.increase)
+                            if (match.increase <= 0) {
+                                return '#64c25f';
+                            }
+                            else {
+                                return c(match.increase)
+                            }
 
                         return DEFAULT_FILL;
                     })
@@ -200,10 +222,15 @@ const drawMap = (covidData, guidelineData) => {
                         d3.select(this).style('stroke', COUNTY_BORDER).style('stroke-width', 0.5)
                     })
                     .on('mousemove', function(event) {
-                        toolTip.style('left', `${event.clientX}px`).style('top', `${event.clientY + 20}px`);
+                        if (event.clientX > $(window).width() / 2) {
+                            toolTip.style('left', `${event.clientX-200}px`).style('top', `${event.clientY + 20}px`);
+                        } else {
+                            toolTip.style('left', `${event.clientX}px`).style('top', `${event.clientY + 20}px`);
+                        }
                     })
-                    .on('click', function(event) {
+                    .on('click', function() {
                         let stateGuidelines = guidelineData.filter(e => e.state == selection.state);
+                        // console.log(sources[selection.state])
                         info(selection, stateGuidelines)
                     })
             });

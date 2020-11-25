@@ -31,7 +31,7 @@ h1 {
     font-family: Roboto;
     text-transform: uppercase;
     font-weight: 400;
-    font-size: 1.5em;
+    font-size: 1.2em;
     letter-spacing: 0.05em;
     color: whitesmoke;
     text-align: center;
@@ -43,9 +43,22 @@ nav .navbar .navbar-dark .bg-dark {
     background: rgb(173, 35, 35);
 }
 
+#nav-about {
+    display: inline-block;
+    margin-top: 1em;
+}
+
+#nav-about:hover {
+    cursor: pointer;
+}
+
 a {
     color: aquamarine;
     font-weight: 500;
+}
+
+a:hover {
+    color: rgb(209, 255, 239);
 }
 
 .highlight {
@@ -99,14 +112,15 @@ form {
 }
 
 .map-container {
-    height: 60vh;
+    /* height: 60vh; */
     position: relative;
 }
 
+
 #map {
-    /* border: 1px solid grey; */
     width: 60vw;
     margin-top: -3em;
+    /* border: 1px solid white; */
 }
 
 #tooltip {
@@ -118,12 +132,15 @@ form {
     border-radius: 5px;
     font-family: Nunito;
     line-height: 0.5em;
+    width: auto;
+    max-width: 400px;    
 }
 
 .subheading {
     font-family: Roboto;
     font-size: 16px;
     letter-spacing: 0.05em;
+    display: inline-block;
     color: aquamarine;
 }
 
@@ -144,32 +161,61 @@ form {
     100% { transform: rotate(360deg); }
 }
 
-.info-container {
-    height: auto;
-    /* border: 1px solid white; */
-    width: 36%;
+#modal-mask {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    opacity: 0.5;
+    background: black;
+    backdrop-filter: blur(40px);
 }
 
-#info-card {
+.info-container {
+    /* height: auto; */
+    /* border: 1px solid white; */
     display: none;
+    width: 36%;
+    opacity: 0;
+    transition: all 3s;
+}
+
+.card {
     color: white;
     font-family: Nunito;
     background: rgb(79, 78, 82);
-    padding: 3em;
+    padding: 1.5em;
     border-radius: 5px;
     max-height: 75vh;
     overflow-y: auto;
 }
 
+.card a {
+    text-decoration: underline;
+}
 
-#info-card li {
+
+.card li {
     word-wrap: break-word;
-    margin: 2em 0;
+    margin-bottom: 2em;
     padding: 0.4em;
     display: list-item;
 }
 
-.info-head {
+.heading-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.exit {
+    padding: 3%;
+}
+
+.exit:hover {
+    cursor: pointer;
+}
+
+.head {
     display: inline-block;
     font-size: 1.5em;
     letter-spacing: 0.2em;
@@ -194,6 +240,16 @@ form {
     font-weight: 100;;
 }
 
+#source {
+    font-size: 1.4em;
+    display: block;
+    margin: 1em 0;
+}
+
+#other-notes{
+    margin: 2em 0 1em 0;
+}
+
 .quick-info {
     color: aquamarine;
     font-weight: 400;
@@ -201,4 +257,39 @@ form {
 
 .date {
     color: rgb(255, 146, 146); 
+}
+
+footer {
+    text-align: center;
+    color: white;
+}
+
+@media(max-width: 1050px) {
+    * {
+        font-size: 16px;
+    }
+    .content {
+        align-items: baseline;
+        flex-direction: column;
+        /* justify-content: center; */
+    }
+    .map-container, #map{
+        width: 100%;
+        /* margin: 2em 0; */
+        /* border: 1px solid white; */
+    }
+    .info-container, .about-container {
+        width: 97%;
+        position: static;
+        /* top: 45%; */
+        margin: 0 auto;
+        max-height: 40vh;
+        /* border: 1px solid white; */
+    }
+    .card {
+        padding: 1.2em;
+    }
+    #info-card a {
+        font-size: 18px;
+    }
 }
