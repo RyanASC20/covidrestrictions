@@ -22,57 +22,58 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <!-- <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a> -->
             <p id="nav-about" class="nav-item nav-link">About</p>
           </div>
         </div>
       </nav>
-    <div>
-        <!-- <p class="directions">
-            Click on or search for a county to view travel guidelines of the state the county is in
-        </p> -->
         
-        <div class="content">
+    <div class="content">
+        <div class="content-left">
+            <form id="search-form" autocomplete="off">
+                <div class="autocomplete" style="width:300px;">
+                  <input id="myInput" class="search" type="text" name="myCountry" placeholder="County or State">
+                </div>
+                <input type="submit">
+            </form>
             <div class="map-container">
                 <div class="loader"></div>
                 <svg id="map"></svg>
                 <div id="tooltip"></div>
             </div>
-            
-            <div id="modal-mask"></div>
+        </div>
+        <div id="modal-mask"></div>
 
-            <div class="about-container">
-                <div id="about-card" class="card">
-                    <div class="heading-container">
-                        <p id="about-subheading" class="subheading head">About</p>
-                        <p class="exit">X</p>
-                    </div>
-                    <p id="about"></p>
+        <div class="about-container">
+            <div id="about-card" class="card">
+                <div class="heading-container">
+                    <p id="about-subheading" class="subheading head">About</p>
+                    <p class="exit">X</p>
                 </div>
-                
-            </div>
-
-            <div class="info-container">
-                <div id="info-card" class="card">
-                    <div class="heading-container">
-                        <p id="info-subheading" class="subheading head"><span id="info-county"></span><span id="info-state"></span></p>
-                        <p class="exit">X</p>
-                    </div>
-                    <div id="info-content">
-                        <div class="info-general-container">
-                            <span>Cases: <span class="quick-info" id="info-cases"></span></span><span>Deaths: <span class="quick-info" id="info-deaths"></span></span>
-                        </div>
-                        <a id="source" href="#" target="_blank"></a>
-                        <h2 class="subheading" id="other-notes">Other Notes:</h2>
-                        <ul class="state-guidelines"></ul>
-                    </div>
-                    
-                </div>
+                <p id="about"></p>
             </div>
             
         </div>
+
+        <div class="info-container">
+            <div id="info-card" class="card">
+                <div class="heading-container">
+                    <p id="info-subheading" class="subheading head"><span id="info-county"></span><span id="info-state"></span></p>
+                    <p class="exit">X</p>
+                </div>
+                <div id="info-content">
+                    <div class="info-general-container">
+                        <span>Cases: <span class="quick-info" id="info-cases"></span></span><span>Deaths: <span class="quick-info" id="info-deaths"></span></span>
+                    </div>
+                    <a id="source" href="#" target="_blank"></a>
+                    <h2 class="subheading" id="other-notes">Other Notes:</h2>
+                    <ul class="state-guidelines"></ul>
+                </div>
+                
+            </div>
+        </div>
         
     </div>
+        
 
     <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"

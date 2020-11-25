@@ -94,12 +94,46 @@ form {
     background: transparent;
     border: none;
     border-bottom: 1px solid white;
-    width: 80%;
+    width: 100%;
+    margin-bottom: 2em;
+    text-align: center;
 }
 
 .search:focus {
     outline: none;
     border-bottom: 1px solid aquamarine;
+}
+
+.autocomplete {
+    /*the container must be positioned relative:*/
+    position: relative;
+    display: inline-block;
+}
+
+input[type="submit"] {
+    height: 100%;
+    margin-left: 1em;
+}
+.autocomplete-items {
+    position: absolute;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+    color: rgb(197, 197, 197);
+}
+
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(73, 73, 73);
+    border-bottom: 1px solid #616161;
+}
+
+.autocomplete-active, .autocomplete-items div:hover  {
+    background-color: aquamarine !important;
+    color: black;
 }
 
 .content {
@@ -111,8 +145,15 @@ form {
     height: 85vh;
 }
 
+.content-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .map-container {
     /* height: 60vh; */
+    /* border: 1px solid white; */
     position: relative;
 }
 
@@ -194,7 +235,6 @@ form {
     text-decoration: underline;
 }
 
-
 .card li {
     word-wrap: break-word;
     margin-bottom: 2em;
@@ -272,6 +312,15 @@ footer {
         align-items: baseline;
         flex-direction: column;
         /* justify-content: center; */
+    }
+    form {
+        width: 80%;
+    }
+    form {
+        margin-bottom: 4em;
+    }
+    input[type=submit] {
+        height: 2em;
     }
     .map-container, #map{
         width: 100%;
