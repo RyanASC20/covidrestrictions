@@ -3590,6 +3590,10 @@ function autocomplete(inp, arr) {
         }
     });
     
+    inp.addEventListener('click', () => {
+        hideAbout();
+        hideInfo();
+    })
     function addActive(x) {
 
         if (!x) return false;
