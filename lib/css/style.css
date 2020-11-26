@@ -76,9 +76,9 @@ a:hover {
 }
 
 form {
-    display: inline-flex;
-    /* justify-content: center; */
-    width: 50%;
+    display: none;
+    width: 30vw;
+    margin-bottom: 1em;
 }
 
 ::placeholder {
@@ -87,15 +87,15 @@ form {
 
 .search { 
     font-family: Roboto;
-    font-size: 1.1em;
+    font-size: 1.4em;
     color: white;
     font-weight: 100;
     letter-spacing: 0.1em;
     background: transparent;
     border: none;
     border-bottom: 1px solid white;
-    width: 100%;
-    margin-bottom: 2em;
+    width: 30vw;
+    /* margin-bottom: 10%; */
     text-align: center;
     position: relative;
 }
@@ -106,19 +106,17 @@ form {
 }
 
 .autocomplete {
-    /*the container must be positioned relative:*/
     position: relative;
     display: inline-block;
 }
 
-input[type="submit"] {
+button[type="submit"] {
     height: 100%;
     margin-left: 1em;
 }
 .autocomplete-items {
     position: absolute;
     z-index: 99;
-    /*position the autocomplete items to be the same width as the container:*/
     top: 100%;
     left: 0;
     right: 0;
@@ -130,6 +128,7 @@ input[type="submit"] {
     cursor: pointer;
     background-color: rgb(73, 73, 73);
     border-bottom: 1px solid #616161;
+    width: 30vw;
 }
 
 .autocomplete-active, .autocomplete-items div:hover  {
@@ -150,19 +149,25 @@ input[type="submit"] {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .map-container {
-    /* height: 60vh; */
-    /* border: 1px solid white; */
     position: relative;
 }
 
 
 #map {
     width: 60vw;
-    margin-top: -3em;
+    /* margin-top: -3em; */
     /* border: 1px solid white; */
+}
+
+text {
+    fill: white;
+    text-align: center;
+    font-size: 12px;
+    margin: 0;
 }
 
 #tooltip {
@@ -176,6 +181,10 @@ input[type="submit"] {
     line-height: 0.5em;
     width: auto;
     max-width: 400px;    
+}
+
+.cell text {
+    color: white;
 }
 
 .subheading {
@@ -213,13 +222,9 @@ input[type="submit"] {
     backdrop-filter: blur(40px);
 }
 
-.info-container {
-    /* height: auto; */
-    /* border: 1px solid white; */
+.info-container, .about-container {
     display: none;
     width: 36%;
-    opacity: 0;
-    transition: all 3s;
 }
 
 .card {
@@ -315,26 +320,24 @@ footer {
         /* justify-content: center; */
     }
     form {
-        width: 80%;
+        width: 90vw;
+        text-align: center;
     }
-    form {
-        margin-bottom: 4em;
+    .search {
+        width: 100%;
+        margin: 0;
     }
-    input[type=submit] {
+    button[type=submit] {
         height: 2em;
     }
     .map-container, #map{
-        width: 100%;
-        /* margin: 2em 0; */
-        /* border: 1px solid white; */
+        width: 100vw;
     }
     .info-container, .about-container {
         width: 97%;
         position: static;
-        /* top: 45%; */
         margin: 0 auto;
         max-height: 40vh;
-        /* border: 1px solid white; */
     }
     .card {
         padding: 1.2em;
