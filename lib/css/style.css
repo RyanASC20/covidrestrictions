@@ -286,6 +286,27 @@ text {
     font-weight: 100;;
 }
 
+table {
+    width: 100%;
+}
+
+td, th {
+    padding: 0.25em;
+}
+
+table, tr, td, th {
+    font-size: 14px;
+    border: 1px solid rgb(149, 149, 149);
+}
+
+.increase {
+    color: rgb(255, 116, 116);
+}
+
+.decrease {
+    color: rgb(107, 250, 107);
+}
+
 #source {
     font-size: 1.4em;
     display: block;
