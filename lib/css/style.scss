@@ -1,0 +1,68 @@
+$primaryBackground: rgb(50, 50, 51);
+$secondaryBackground: rgb(65, 65, 70);
+$RED: rgb(255, 116, 116);
+$GREEN: rgb(107, 250, 107);
+$highlight: rgb(5, 255, 5);
+
+$mobileMaxWidth: 1050px;
+$mobileFormWidth: 80vw;
+
+@mixin hover {
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@mixin text ($font:Nunito, $color:white, $size:1em, $weight:400, $spacing:normal, $lineHeight:normal) {
+    font-style: $font;
+    color: $color;
+    font-size: $size;
+    font-weight: $weight;
+    letter-spacing: $spacing;
+    line-height: $lineHeight;
+}
+
+@import 'scrollbar', 'nav', 'search', 'map', 'info';
+
+
+body {
+    background: $secondaryBackground;
+}
+
+.red {
+    color: $RED;
+}
+
+.green {
+    color: $GREEN;
+}
+
+.highlight {
+    color: $highlight;
+}
+
+.subheading {
+    @include text(Roboto, aquamarine, 16px, $spacing: 0.05em);
+    display: inline-block;
+}
+
+.content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background: $primaryBackground;
+    height: 85vh;
+
+    @media(max-width: $mobileMaxWidth) {
+        font-size: 16px;
+        align-items: baseline;
+        flex-direction: column;
+    }
+}
+
+.content-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

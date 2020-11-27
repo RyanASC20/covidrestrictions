@@ -1,0 +1,44 @@
+
+
+@media(max-width: $maxWidth) {
+    * {
+        font-size: 16px;
+    }
+    .content {
+        align-items: baseline;
+        flex-direction: column;
+    }
+    form {
+        width: $formWidth;
+        text-align: center;
+        
+        .search {
+            width: $formWidth;
+            margin: 0;
+        }
+
+        .autocomplete-items div {
+            width: $formWidth;
+        }
+    }
+    
+    .map-container {
+        width: 100vw;
+    }
+    svg {
+        width: 1000px;
+    }
+    .info-container, .about-container {
+        width: 97%;
+        position: static;
+        margin: 0 auto;
+        max-height: 40vh;
+    }
+    .card {
+        padding: 0;
+        max-height: none;
+    }
+    #info-card a {
+        font-size: 18px;
+    }
+}

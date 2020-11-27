@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <!--Style-->
+    <!-- <link rel="stylesheet" href="lib/css/style.min.css"> -->
     <link rel="stylesheet" href="lib/css/style.min.css">
 
     <!--Libraries-->
@@ -33,7 +34,7 @@
 </head>
 <body>
     
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="index.html"><h1>Covid-19 Travel</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -55,7 +56,7 @@
             </form>
             <div class="map-container">
                 <div class="loader"></div>
-                <svg id="map"></svg>
+                <svg></svg>
                 <div id="tooltip"></div>
             </div>
         </div>
@@ -64,10 +65,14 @@
         <div class="about-container">
             <div id="about-card" class="card">
                 <div class="heading-container">
-                    <p id="about-subheading" class="subheading head">About</p>
+                    <h1 id="about-subheading" class="heading">About</h1>
                     <p class="exit">X</p>
                 </div>
-                <p id="about"></p>
+                <div id="about">
+                    <p>This website was made to assist those travelling during the Covid-19 pandemic. The map shows every county in the United States, color coded based on the number of new cases in the past week. The green counties have an increase of less than or equal to 0 cases in the past week. By clicking on a county, the cases and deaths in that county are displayed, as well as a link to the state's travel guidelines. Below, there are general notes from that state.</p>
+                    <p>Covid-19 data is pulled from the <a href="https://github.com/nytimes/covid-19-data" target="_blank">NY Times</a>, and notes are pulled from <a href="https://github.com/COVID19StatePolicy/SocialDistancing" target="_blank">Covid19StatePolicy</a></p>
+                    <p>Click on a county to begin!</p>
+                </div>
             </div>
             
         </div>
@@ -75,7 +80,7 @@
         <div class="info-container">
             <div id="info-card" class="card">
                 <div class="heading-container">
-                    <p id="info-subheading" class="subheading head"><span id="info-county"></span><span id="info-state"></span></p>
+                    <h1 id="info-subheading" class="heading"><span id="info-county"></span><span id="info-state"></span></h1>
                     <p class="exit">X</p>
                 </div>
                 <div id="info-content">

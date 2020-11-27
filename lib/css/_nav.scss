@@ -1,0 +1,14 @@
+nav h1{
+    @include text($size: 1.6em, $weight: 200, $spacing:0.0.5em);
+    text-transform: uppercase;
+}
+
+#nav-about {
+    display: inline-block;
+    margin-top: 1em;
+    @include hover;
+}
+
+#nav-about:hover {
+    cursor: pointer;
+}

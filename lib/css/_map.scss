@@ -1,0 +1,50 @@
+$mapWidth: 60vw;
+
+@mixin responsiveMap {
+    @media(max-width: $mobileMaxWidth) {
+        width: 100vw;
+    }
+}
+
+.map-container {
+    position: relative;
+    @include responsiveMap();
+
+    svg {
+        width: $mapWidth;
+        @include responsiveMap();
+    
+        text {
+            @include text(Nunito, $size:12px, $weight:200);
+            fill: white;
+            text-align: center;
+        }
+    }
+
+    #tooltip {
+        @include text($color: white, $lineHeight:0.5em);
+        visibility: hidden;
+        background: rgb(79, 84, 92);
+        position: fixed;
+        padding: 1em;
+        border-radius: 5px;
+        max-width: 400px;    
+    }
+
+    .loader {
+        position: absolute;
+        left: 40%;
+        top: 30%;
+        border: 16px solid #474747; 
+        border-top: 16px solid aquamarine; 
+        border-radius: 50%;
+        width: 120px;
+        height: 120px;
+        animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+}

@@ -1,0 +1,67 @@
+$formWidth: 30vw;
+$mobileFormWidth: 80vw;
+
+form {
+    display: none;
+    width: $formWidth;
+    margin-bottom: 1em;
+
+    ::placeholder {
+        color: lightgray;
+    }
+
+    @media(max-width: $mobileMaxWidth) {
+        width: $mobileFormWidth;
+        text-align: center;
+    }
+
+    .search {
+        @include text(Roboto, white, 1.4em, 100);
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid white;
+        width: $formWidth;
+        text-align: center;
+
+        &:focus {
+            outline: none;
+            border-bottom: 1px solid aquamarine;
+        }
+
+        @media(max-width: $mobileMaxWidth) {
+            width: $mobileFormWidth;
+            margin: 0;
+        }
+    }
+
+    .autocomplete {
+        position: relative;
+        display: inline-block;
+    }
+
+    .autocomplete-items {
+        position: absolute;
+        z-index: 99;
+        top: 100%;
+        left: 0;
+        right: 0;
+        color: rgb(197, 197, 197);
+        
+        div {
+            padding: 10px;
+            cursor: pointer;
+            background-color: rgb(73, 73, 73);
+            border-bottom: 1px solid #616161;
+            width: $formWidth;
+
+            @media(max-width: $mobileMaxWidth) {
+                width: $mobileFormWidth;
+            }
+        }
+    }
+
+    .autocomplete-active, .autocomplete-items div:hover  {
+        background-color: aquamarine !important;
+        color: black;
+    }
+}
