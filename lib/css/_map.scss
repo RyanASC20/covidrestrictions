@@ -1,8 +1,10 @@
-$mapWidth: 60vw;
+$mapWidth: 50vw;
+$mapHeight: 70vh;
 
 @mixin responsiveMap {
     @media(max-width: $mobileMaxWidth) {
         width: 100vw;
+        height: 35vh;
     }
 }
 
@@ -11,7 +13,8 @@ $mapWidth: 60vw;
     @include responsiveMap();
 
     svg {
-        width: $mapWidth;
+        // width: $mapWidth;
+        height: $mapHeight;
         @include responsiveMap();
     
         text {
@@ -33,14 +36,19 @@ $mapWidth: 60vw;
 
     .loader {
         position: absolute;
-        left: 40%;
-        top: 30%;
+        left: 55%;
+        top: 35%;
         border: 16px solid #474747; 
         border-top: 16px solid aquamarine; 
         border-radius: 50%;
         width: 120px;
         height: 120px;
         animation: spin 1s linear infinite;
+
+        @media(max-width: $mobileMaxWidth) {
+            left: 35%;
+            top: 25%;
+        }
     }
     
     @keyframes spin {

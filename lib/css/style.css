@@ -136,16 +136,18 @@ form .autocomplete-active, form .autocomplete-items div:hover {
 @media (max-width: 1050px) {
   .map-container {
     width: 100vw;
+    height: 35vh;
   }
 }
 
 .map-container svg {
-  width: 60vw;
+  height: 70vh;
 }
 
 @media (max-width: 1050px) {
   .map-container svg {
     width: 100vw;
+    height: 35vh;
   }
 }
 
@@ -177,8 +179,8 @@ form .autocomplete-active, form .autocomplete-items div:hover {
 
 .map-container .loader {
   position: absolute;
-  left: 40%;
-  top: 30%;
+  left: 55%;
+  top: 35%;
   border: 16px solid #474747;
   border-top: 16px solid aquamarine;
   border-radius: 50%;
@@ -186,6 +188,13 @@ form .autocomplete-active, form .autocomplete-items div:hover {
   height: 120px;
   -webkit-animation: spin 1s linear infinite;
           animation: spin 1s linear infinite;
+}
+
+@media (max-width: 1050px) {
+  .map-container .loader {
+    left: 35%;
+    top: 25%;
+  }
 }
 
 @-webkit-keyframes spin {
