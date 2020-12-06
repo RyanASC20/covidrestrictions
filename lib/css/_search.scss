@@ -2,36 +2,27 @@
 // $mobileFormWidth: 90vw;
 
 form {
-    grid-area: search;
-    // width: $formWidth;
-    margin-bottom: 1em;
-
     ::placeholder {
         color: lightgray;
     }
 
-    // @media(max-width: $mobileMaxWidth) {
-    //     width: $mobileFormWidth;
-    //     text-align: center;
-    // }
+    * {
+        width: 100%;
+    }
 
-    .search {
-        @include text(Roboto, white, 1.4em, 100);
+    input {
+        grid-area: search;
+        @include text(Roboto, white, 1.2em, 100);
+        width: 100%;
         padding: 3%;
         background: $secondaryBackground;
         border-radius: 10px;
         border: none;
-        // width: $formWidth;
         text-align: center;
 
         &:focus {
             outline: none;
             border: 1px solid aquamarine;
-        }
-
-        @media(max-width: $mobileMaxWidth) {
-            width: $mobileFormWidth;
-            margin: 0;
         }
     }
 
@@ -47,17 +38,14 @@ form {
         left: 0;
         right: 0;
         color: rgb(197, 197, 197);
+        max-height: $contentHeight;
+        overflow-y: auto;
         
         div {
             padding: 10px;
             cursor: pointer;
-            background-color: rgb(73, 73, 73);
-            border-bottom: 1px solid #616161;
-            // width: $formWidth;
-
-            @media(max-width: $mobileMaxWidth) {
-                width: $mobileFormWidth;
-            }
+            background-color: rgb(49, 53, 82);
+            border-bottom: 1px solid #ffffff;
         }
     }
 

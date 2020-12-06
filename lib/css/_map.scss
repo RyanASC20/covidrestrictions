@@ -1,5 +1,5 @@
 $mapWidth: 55vw;
-$mapHeight: 72vh;
+$mapHeight: 78.5vh;
 
 @mixin responsiveMap {
     @media(max-width: $mobileMaxWidth) {
@@ -9,17 +9,16 @@ $mapHeight: 72vh;
 }
 
 .map-container {
-    // position: relative;
     grid-area: map;
     @include responsiveMap();
     background: $secondaryBackground;
     border-radius: 10px;
 
     svg {
-        // height: $mapHeight;
-        // width: $mapWidth;
+        padding: 1%;
         @include responsiveMap();
-    
+        width: 100%;
+        height: $mapHeight;
         text {
             @include text(Nunito, $size:12px, $weight:200);
             fill: white;
@@ -39,8 +38,8 @@ $mapHeight: 72vh;
 
     .loader {
         position: absolute;
-        left: 45%;
-        top: 35%;
+        left: 35%;
+        top: 45%;
         border: 16px solid #474747; 
         border-top: 16px solid aquamarine; 
         border-radius: 50%;

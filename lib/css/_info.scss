@@ -1,30 +1,18 @@
-$width: 36%;
-
 .info {
     grid-area: info;
     .info-container, .about-container {
         display: none;
-        // width: $width;
         font-size: 0.95em;
-
-        @media(max-width: $mobileMaxWidth) {
-            width: 97%;
-            position: static;
-            margin: 0 auto;
-            max-height: 40vh;
-        }
 
         .card {
             @include text(Nunito);
             background: $secondaryBackground;
             padding: 1.5em;
             border-radius: 5px;
-            height: 79vh;
+            height: $contentHeight;
             overflow-y: auto;
-
             @media(max-width: $mobileMaxWidth) {
-                padding: 0.8em;
-                max-height: none;
+                height: auto;
             }
 
             .heading-container {

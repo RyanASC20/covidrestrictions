@@ -47,18 +47,16 @@
       </nav>
         
     <div class="content">
-        <div class="content-left">
-            <form id="search-form" autocomplete="off">
-                <div class="autocomplete" style="width:300px;">
-                  <input id="myInput" class="search" type="text" name="myCountry" placeholder="Search to Select a County">
-                </div>
-                <button type="submit" hidden="true"></button>
-            </form>
-            <div class="map-container">
-                <div class="loader"></div>
-                <svg></svg>
-                <div id="tooltip"></div>
+        <form id="search-form" autocomplete="off">
+            <div class="autocomplete" style="width:300px;">
+                <input id="myInput" class="search" type="text" name="myCountry" placeholder="Search to Select a County">
             </div>
+            <button type="submit" hidden="true"></button>
+        </form>
+        <div class="map-container">
+            <div class="loader"></div>
+            <svg></svg>
+            <div id="tooltip"></div>
         </div>
         <div class="info">
             <div class="about-container">
@@ -95,7 +93,6 @@
                 </div>
             </div>
         </div>
-        
     </div>
         
 </body>
