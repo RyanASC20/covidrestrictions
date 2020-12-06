@@ -1,99 +1,102 @@
 $width: 36%;
 
-.info-container, .about-container {
-    display: none;
-    width: $width;
-    font-size: 0.95em;
-
-    @media(max-width: $mobileMaxWidth) {
-        width: 97%;
-        position: static;
-        margin: 0 auto;
-        max-height: 40vh;
-    }
-
-    .card {
-        @include text(Nunito);
-        background: rgb(79, 78, 82);
-        padding: 1.5em;
-        border-radius: 5px;
-        max-height: 75vh;
-        overflow-y: auto;
+.info {
+    grid-area: info;
+    .info-container, .about-container {
+        display: none;
+        // width: $width;
+        font-size: 0.95em;
 
         @media(max-width: $mobileMaxWidth) {
-            padding: 0.8em;
-            max-height: none;
+            width: 97%;
+            position: static;
+            margin: 0 auto;
+            max-height: 40vh;
         }
 
-        .heading-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .card {
+            @include text(Nunito);
+            background: $secondaryBackground;
+            padding: 1.5em;
+            border-radius: 5px;
+            height: 79vh;
+            overflow-y: auto;
 
-            .heading {
-                @include text(Roboto, white, 1.5em, 200, 0.2em);
-                text-transform: uppercase;
-                display: inline-block;
-                padding: 0.5em;
-                border: 1px solid white;
+            @media(max-width: $mobileMaxWidth) {
+                padding: 0.8em;
+                max-height: none;
+            }
 
-                #info-state {
-                    color: aquamarine;
+            .heading-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .heading {
+                    @include text(Roboto, white, 1.5em, 200, 0.2em);
+                    text-transform: uppercase;
+                    display: inline-block;
+                    padding: 0.5em;
+                    border: 1px solid white;
+
+                    #info-state {
+                        color: aquamarine;
+                    }
+                }
+
+                .exit {
+                    padding: 3%;
+                    @include hover;
                 }
             }
 
-            .exit {
-                padding: 3%;
-                @include hover;
+            a {
+                text-decoration: underline;
+                color: aquamarine;
             }
-        }
 
-        a {
-            text-decoration: underline;
-            color: aquamarine;
-        }
+            ul {
+                list-style: none;
+                padding: 0;
 
-        ul {
-            list-style: none;
-            padding: 0;
-
-            li {
-                word-wrap: break-word;
-                margin-bottom: 2em;
-                display: list-item;
+                li {
+                    word-wrap: break-word;
+                    margin-bottom: 2em;
+                    display: list-item;
+                }
             }
-        }
 
-        .info-general-container {
-            @include text($size: 1.1em, $weight: 200);
-            display: flex;
-            justify-content: space-between;
+            .info-general-container {
+                @include text($size: 1.1em, $weight: 200);
+                display: flex;
+                justify-content: space-between;
 
-            .quick-info {
-                @include text($color:aquamarine, $weight: 400);
+                .quick-info {
+                    @include text($color:aquamarine, $weight: 400);
+                }
             }
-        }
 
-        #source {
-            font-size: 1.4em;
-            display: block;
-            margin: 1em 0;
-        }
+            #source {
+                font-size: 1.4em;
+                display: block;
+                margin: 1em 0;
+            }
 
-        table {
-            width: 100%;
-            font-size: 14px;
-            border: 1px solid rgb(149, 149, 149);
-
-            td, th {
-                padding: 0.5em;
+            table {
+                width: 100%;
+                font-size: 14px;
                 border: 1px solid rgb(149, 149, 149);
 
-            }
-        }
+                td, th {
+                    padding: 0.5em;
+                    border: 1px solid rgb(149, 149, 149);
 
-        #other-notes {
-            margin: 2em 0 1em 0;
+                }
+            }
+
+            #other-notes {
+                margin: 2em 0 1em 0;
+            }
         }
     }
 }

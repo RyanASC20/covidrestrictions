@@ -1,31 +1,32 @@
-$formWidth: 30vw;
-$mobileFormWidth: 80vw;
+// $formWidth: $mapWidth;
+// $mobileFormWidth: 90vw;
 
 form {
-    display: none;
-    width: $formWidth;
+    grid-area: search;
+    // width: $formWidth;
     margin-bottom: 1em;
 
     ::placeholder {
         color: lightgray;
     }
 
-    @media(max-width: $mobileMaxWidth) {
-        width: $mobileFormWidth;
-        text-align: center;
-    }
+    // @media(max-width: $mobileMaxWidth) {
+    //     width: $mobileFormWidth;
+    //     text-align: center;
+    // }
 
     .search {
         @include text(Roboto, white, 1.4em, 100);
-        background: transparent;
+        padding: 3%;
+        background: $secondaryBackground;
+        border-radius: 10px;
         border: none;
-        border-bottom: 1px solid white;
-        width: $formWidth;
+        // width: $formWidth;
         text-align: center;
 
         &:focus {
             outline: none;
-            border-bottom: 1px solid aquamarine;
+            border: 1px solid aquamarine;
         }
 
         @media(max-width: $mobileMaxWidth) {
@@ -52,7 +53,7 @@ form {
             cursor: pointer;
             background-color: rgb(73, 73, 73);
             border-bottom: 1px solid #616161;
-            width: $formWidth;
+            // width: $formWidth;
 
             @media(max-width: $mobileMaxWidth) {
                 width: $mobileFormWidth;

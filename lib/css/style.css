@@ -20,7 +20,7 @@
 
 nav h1 {
   font-style: Nunito;
-  color: white;
+  color: #bdbdbd;
   font-size: 1.6em;
   font-weight: 200;
   letter-spacing: 0 0.5em;
@@ -41,96 +41,13 @@ nav h1 {
   cursor: pointer;
 }
 
-form {
-  display: none;
-  width: 30vw;
-  margin-bottom: 1em;
-}
-
-form ::-webkit-input-placeholder {
-  color: lightgray;
-}
-
-form :-ms-input-placeholder {
-  color: lightgray;
-}
-
-form ::-ms-input-placeholder {
-  color: lightgray;
-}
-
-form ::placeholder {
-  color: lightgray;
-}
-
-@media (max-width: 1050px) {
-  form {
-    width: 80vw;
-    text-align: center;
-  }
-}
-
-form .search {
-  font-style: Roboto;
-  color: white;
-  font-size: 1.4em;
-  font-weight: 100;
-  letter-spacing: normal;
-  line-height: normal;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid white;
-  width: 30vw;
-  text-align: center;
-}
-
-form .search:focus {
-  outline: none;
-  border-bottom: 1px solid aquamarine;
-}
-
-@media (max-width: 1050px) {
-  form .search {
-    width: 80vw;
-    margin: 0;
-  }
-}
-
-form .autocomplete {
-  position: relative;
-  display: inline-block;
-}
-
-form .autocomplete-items {
-  position: absolute;
-  z-index: 99;
-  top: 100%;
-  left: 0;
-  right: 0;
-  color: #c5c5c5;
-}
-
-form .autocomplete-items div {
-  padding: 10px;
-  cursor: pointer;
-  background-color: #494949;
-  border-bottom: 1px solid #616161;
-  width: 30vw;
-}
-
-@media (max-width: 1050px) {
-  form .autocomplete-items div {
-    width: 80vw;
-  }
-}
-
-form .autocomplete-active, form .autocomplete-items div:hover {
-  background-color: aquamarine !important;
-  color: black;
-}
-
 .map-container {
-  position: relative;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: map;
+  background: #282d49;
+  border-radius: 10px;
 }
 
 @media (max-width: 1050px) {
@@ -138,10 +55,6 @@ form .autocomplete-active, form .autocomplete-items div:hover {
     width: 100vw;
     height: 35vh;
   }
-}
-
-.map-container svg {
-  height: 70vh;
 }
 
 @media (max-width: 1050px) {
@@ -153,7 +66,7 @@ form .autocomplete-active, form .autocomplete-items div:hover {
 
 .map-container svg text {
   font-style: Nunito;
-  color: white;
+  color: #bdbdbd;
   font-size: 12px;
   font-weight: 200;
   letter-spacing: normal;
@@ -179,7 +92,7 @@ form .autocomplete-active, form .autocomplete-items div:hover {
 
 .map-container .loader {
   position: absolute;
-  left: 55%;
+  left: 45%;
   top: 35%;
   border: 16px solid #474747;
   border-top: 16px solid aquamarine;
@@ -219,14 +132,103 @@ form .autocomplete-active, form .autocomplete-items div:hover {
   }
 }
 
-.info-container, .about-container {
+form {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 3;
+  grid-area: search;
+  margin-bottom: 1em;
+}
+
+form ::-webkit-input-placeholder {
+  color: lightgray;
+}
+
+form :-ms-input-placeholder {
+  color: lightgray;
+}
+
+form ::-ms-input-placeholder {
+  color: lightgray;
+}
+
+form ::placeholder {
+  color: lightgray;
+}
+
+form .search {
+  font-style: Roboto;
+  color: white;
+  font-size: 1.4em;
+  font-weight: 100;
+  letter-spacing: normal;
+  line-height: normal;
+  padding: 3%;
+  background: #282d49;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+}
+
+form .search:focus {
+  outline: none;
+  border: 1px solid aquamarine;
+}
+
+@media (max-width: 1050px) {
+  form .search {
+    width: 80vw;
+    margin: 0;
+  }
+}
+
+form .autocomplete {
+  position: relative;
+  display: inline-block;
+}
+
+form .autocomplete-items {
+  position: absolute;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  color: #c5c5c5;
+}
+
+form .autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #494949;
+  border-bottom: 1px solid #616161;
+}
+
+@media (max-width: 1050px) {
+  form .autocomplete-items div {
+    width: 80vw;
+  }
+}
+
+form .autocomplete-active, form .autocomplete-items div:hover {
+  background-color: aquamarine !important;
+  color: black;
+}
+
+.info {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 4;
+  grid-area: info;
+}
+
+.info .info-container, .info .about-container {
   display: none;
-  width: 36%;
   font-size: 0.95em;
 }
 
 @media (max-width: 1050px) {
-  .info-container, .about-container {
+  .info .info-container, .info .about-container {
     width: 97%;
     position: static;
     margin: 0 auto;
@@ -234,28 +236,28 @@ form .autocomplete-active, form .autocomplete-items div:hover {
   }
 }
 
-.info-container .card, .about-container .card {
+.info .info-container .card, .info .about-container .card {
   font-style: Nunito;
-  color: white;
+  color: #bdbdbd;
   font-size: 1em;
   font-weight: 400;
   letter-spacing: normal;
   line-height: normal;
-  background: #4f4e52;
+  background: #282d49;
   padding: 1.5em;
   border-radius: 5px;
-  max-height: 75vh;
+  height: 79vh;
   overflow-y: auto;
 }
 
 @media (max-width: 1050px) {
-  .info-container .card, .about-container .card {
+  .info .info-container .card, .info .about-container .card {
     padding: 0.8em;
     max-height: none;
   }
 }
 
-.info-container .card .heading-container, .about-container .card .heading-container {
+.info .info-container .card .heading-container, .info .about-container .card .heading-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -267,7 +269,7 @@ form .autocomplete-active, form .autocomplete-items div:hover {
           align-items: center;
 }
 
-.info-container .card .heading-container .heading, .about-container .card .heading-container .heading {
+.info .info-container .card .heading-container .heading, .info .about-container .card .heading-container .heading {
   font-style: Roboto;
   color: white;
   font-size: 1.5em;
@@ -280,37 +282,37 @@ form .autocomplete-active, form .autocomplete-items div:hover {
   border: 1px solid white;
 }
 
-.info-container .card .heading-container .heading #info-state, .about-container .card .heading-container .heading #info-state {
+.info .info-container .card .heading-container .heading #info-state, .info .about-container .card .heading-container .heading #info-state {
   color: aquamarine;
 }
 
-.info-container .card .heading-container .exit, .about-container .card .heading-container .exit {
+.info .info-container .card .heading-container .exit, .info .about-container .card .heading-container .exit {
   padding: 3%;
 }
 
-.info-container .card .heading-container .exit:hover, .about-container .card .heading-container .exit:hover {
+.info .info-container .card .heading-container .exit:hover, .info .about-container .card .heading-container .exit:hover {
   cursor: pointer;
 }
 
-.info-container .card a, .about-container .card a {
+.info .info-container .card a, .info .about-container .card a {
   text-decoration: underline;
   color: aquamarine;
 }
 
-.info-container .card ul, .about-container .card ul {
+.info .info-container .card ul, .info .about-container .card ul {
   list-style: none;
   padding: 0;
 }
 
-.info-container .card ul li, .about-container .card ul li {
+.info .info-container .card ul li, .info .about-container .card ul li {
   word-wrap: break-word;
   margin-bottom: 2em;
   display: list-item;
 }
 
-.info-container .card .info-general-container, .about-container .card .info-general-container {
+.info .info-container .card .info-general-container, .info .about-container .card .info-general-container {
   font-style: Nunito;
-  color: white;
+  color: #bdbdbd;
   font-size: 1.1em;
   font-weight: 200;
   letter-spacing: normal;
@@ -323,7 +325,7 @@ form .autocomplete-active, form .autocomplete-items div:hover {
           justify-content: space-between;
 }
 
-.info-container .card .info-general-container .quick-info, .about-container .card .info-general-container .quick-info {
+.info .info-container .card .info-general-container .quick-info, .info .about-container .card .info-general-container .quick-info {
   font-style: Nunito;
   color: aquamarine;
   font-size: 1em;
@@ -332,29 +334,29 @@ form .autocomplete-active, form .autocomplete-items div:hover {
   line-height: normal;
 }
 
-.info-container .card #source, .about-container .card #source {
+.info .info-container .card #source, .info .about-container .card #source {
   font-size: 1.4em;
   display: block;
   margin: 1em 0;
 }
 
-.info-container .card table, .about-container .card table {
+.info .info-container .card table, .info .about-container .card table {
   width: 100%;
   font-size: 14px;
   border: 1px solid #959595;
 }
 
-.info-container .card table td, .info-container .card table th, .about-container .card table td, .about-container .card table th {
+.info .info-container .card table td, .info .info-container .card table th, .info .about-container .card table td, .info .about-container .card table th {
   padding: 0.5em;
   border: 1px solid #959595;
 }
 
-.info-container .card #other-notes, .about-container .card #other-notes {
+.info .info-container .card #other-notes, .info .about-container .card #other-notes {
   margin: 2em 0 1em 0;
 }
 
 body {
-  background: #414146;
+  background: #1a1c27;
 }
 
 .red {
@@ -380,21 +382,21 @@ body {
 }
 
 .content {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #323233;
-  height: 85vh;
+  border: 1px solid white;
+  margin: 0 5%;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-rows: (1fr)[2];
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas: "search search search info info info" "map map map map info info info";
 }
 
 @media (max-width: 1050px) {
   .content {
+    margin: 0;
     font-size: 16px;
     -webkit-box-align: baseline;
         -ms-flex-align: baseline;
@@ -404,21 +406,5 @@ body {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-}
-
-.content-left {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 /*# sourceMappingURL=style.css.map */

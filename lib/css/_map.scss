@@ -1,5 +1,5 @@
-$mapWidth: 50vw;
-$mapHeight: 70vh;
+$mapWidth: 55vw;
+$mapHeight: 72vh;
 
 @mixin responsiveMap {
     @media(max-width: $mobileMaxWidth) {
@@ -9,12 +9,15 @@ $mapHeight: 70vh;
 }
 
 .map-container {
-    position: relative;
+    // position: relative;
+    grid-area: map;
     @include responsiveMap();
+    background: $secondaryBackground;
+    border-radius: 10px;
 
     svg {
+        // height: $mapHeight;
         // width: $mapWidth;
-        height: $mapHeight;
         @include responsiveMap();
     
         text {
@@ -36,7 +39,7 @@ $mapHeight: 70vh;
 
     .loader {
         position: absolute;
-        left: 55%;
+        left: 45%;
         top: 35%;
         border: 16px solid #474747; 
         border-top: 16px solid aquamarine; 
