@@ -15,8 +15,8 @@ $mobileFormWidth: 80vw;
     }
 }
 
-@mixin text ($font:Nunito, $color:$primaryTextColor, $size:1em, $weight:400, $spacing:normal, $lineHeight:normal) {
-    font-style: $font;
+@mixin text ($font:'Nunito', $color:$primaryTextColor, $size:1em, $weight:400, $spacing:normal, $lineHeight:normal) {
+    font-family: $font;
     color: $color;
     font-size: $size;
     font-weight: $weight;
@@ -51,19 +51,21 @@ body {
 .content {
     height: $contentHeight;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     // grid-template-rows: repeat(1, 1fr);
     grid-template-areas: 
-        "search search search info"
-        "map map map info";
+        "mapTitle mapTitle mapTitle mapTitle mapTitle search info info info"
+        "map map map map map map info info info";
     grid-gap: 1em;
-    margin: 0 3%;
+    margin: 0 5%;
 
     @media(max-width: $mobileMaxWidth) {
         margin: 0;
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 1fr;
+        // grid-template-rows: repeat(3, 1fr);
         grid-template-areas: 
             "search"
+            "mapTitle"
             "map"
             "info";
     }

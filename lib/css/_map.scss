@@ -8,6 +8,18 @@ $mapHeight: 78.5vh;
     }
 }
 
+#map-title {
+    grid-area: mapTitle;
+    background: $secondaryBackground;
+    padding: 1%;
+    border-radius: 10px;
+    @include text($size:1.1em, $color: aquamarine);
+    @media(max-width: $mobileMaxWidth) {
+        text-align: center;
+        font-size: 1em;
+    }
+}
+
 .map-container {
     grid-area: map;
     @include responsiveMap();
@@ -19,6 +31,7 @@ $mapHeight: 78.5vh;
         @include responsiveMap();
         width: 100%;
         height: $mapHeight;
+
         text {
             @include text(Nunito, $size:12px, $weight:200);
             fill: white;
@@ -45,7 +58,7 @@ $mapHeight: 78.5vh;
         border-radius: 50%;
         width: 120px;
         height: 120px;
-        animation: spin 1s linear infinite;
+        animation: spin 400ms linear infinite;
 
         @media(max-width: $mobileMaxWidth) {
             left: 35%;
