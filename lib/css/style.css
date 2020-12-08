@@ -136,7 +136,7 @@ nav h1 {
 @media (max-width: 1050px) {
   .map-container .loader {
     left: 35%;
-    top: 25%;
+    top: 35%;
   }
 }
 
