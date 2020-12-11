@@ -27,15 +27,15 @@
     <script src="lib/js/allCounties.min.js" defer></script>
     <script src="lib/js/sourceSites.min.js" defer></script>
     <script src="lib/js/search.min.js" defer></script>
-    <script src="lib/js/info.min.js" defer></script>
+    <script src="lib/js/info.js" defer></script>
     <script src="lib/js/index.js" defer></script>
     
-    <title>Covid Travel Restrictions</title>
+    <title>Covid Travel Data</title>
 </head>
 <body>
     
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="index.html"><h1>Covid-19 Travel</h1></a>
+        <a class="navbar-brand" href="index.html"><h1>Covid-19 Data</h1></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -47,13 +47,19 @@
       </nav>
         
     <div class="content">
-        <form id="search-form" autocomplete="off">
+        <form id="county-search-form" autocomplete="off">
             <div class="autocomplete" style="width:300px;">
                 <input id="myInput" class="search" type="text" name="myCountry" placeholder="Look up in county catalog: ">
             </div>
             <button type="submit" hidden="true"></button>
         </form>
-        <h1 id="map-title">Covid-19 Cases Per Capita</h1>
+        <form id="map-title-form">
+            <select id="map-title" name="map-types">
+                <option value="casesPerCapita">Covid-19 Total County Cases per Capita</option>
+                <option value="weeklyIncreasePerCapita">Covid-19 Weekly Increase Per Capita</option>
+                <option value="dailyIncrease100k">Covid-19 Daily Increase Per 100K</option>
+            </select>
+        </form>
         <div class="map-container">
             <div class="loader"></div>
             <svg></svg>
@@ -64,7 +70,7 @@
                 <div id="about-card" class="card">
                     <div class="heading-container">
                         <h1 id="about-subheading" class="heading">About</h1>
-                        <p class="exit">X</p>
+                        <!-- <p class="exit">X</p> -->
                     </div>
                     <div id="about">
                         <p>This website was made to assist those travelling during the Covid-19 pandemic. The map shows every county in the United States, color coded based on the number of new cases in the past week. The green counties have an increase of less than or equal to 0 cases in the past week. By clicking on a county, the cases and deaths in that county are displayed, as well as a link to the state's travel guidelines. Below, there are general notes from that state.</p>
@@ -85,11 +91,12 @@
                 <div id="info-card" class="card">
                     <div class="heading-container">
                         <h1 id="info-subheading" class="heading"><span id="info-county"></span><span id="info-state"></span></h1>
-                        <p class="exit">X</p>
+                        <!-- <p class="exit">X</p> -->
                     </div>
                     <div id="info-content">
                         <div class="info-general-container">
                             <span>Cases: <span class="quick-info" id="info-cases"></span></span><span>Deaths: <span class="quick-info" id="info-deaths"></span></span>
+                            <div class="info-general"></div>
                         </div>
                         <a id="source" href="#" target="_blank"></a>
                         <table id="weekly-data"></table>

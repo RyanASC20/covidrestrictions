@@ -42,11 +42,14 @@ nav h1 {
   cursor: pointer;
 }
 
-#map-title {
+#map-title-form {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   -ms-grid-column-span: 5;
   grid-area: mapTitle;
+}
+
+#map-title-form #map-title {
   background: #272b3d;
   padding: 1%;
   border-radius: 10px;
@@ -59,7 +62,7 @@ nav h1 {
 }
 
 @media (max-width: 1050px) {
-  #map-title {
+  #map-title-form #map-title {
     text-align: center;
     font-size: 1em;
   }
@@ -162,27 +165,27 @@ nav h1 {
   }
 }
 
-form ::-webkit-input-placeholder {
+#county-search-form ::-webkit-input-placeholder {
   color: lightgray;
 }
 
-form :-ms-input-placeholder {
+#county-search-form :-ms-input-placeholder {
   color: lightgray;
 }
 
-form ::-ms-input-placeholder {
+#county-search-form ::-ms-input-placeholder {
   color: lightgray;
 }
 
-form ::placeholder {
+#county-search-form ::placeholder {
   color: lightgray;
 }
 
-form * {
+#county-search-form * {
   width: 100%;
 }
 
-form input {
+#county-search-form input {
   -ms-grid-row: 1;
   -ms-grid-column: 6;
   grid-area: search;
@@ -200,17 +203,17 @@ form input {
   text-align: center;
 }
 
-form input:focus {
+#county-search-form input:focus {
   outline: none;
   border: 1px solid aquamarine;
 }
 
-form .autocomplete {
+#county-search-form .autocomplete {
   position: relative;
   display: inline-block;
 }
 
-form .autocomplete-items {
+#county-search-form .autocomplete-items {
   position: absolute;
   z-index: 99;
   top: 100%;
@@ -221,14 +224,14 @@ form .autocomplete-items {
   overflow-y: auto;
 }
 
-form .autocomplete-items div {
+#county-search-form .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
   background-color: #313552;
   border-bottom: 1px solid #8f8f8f;
 }
 
-form .autocomplete-active, form .autocomplete-items div:hover {
+#county-search-form .autocomplete-active, #county-search-form .autocomplete-items div:hover {
   background-color: aquamarine !important;
   color: black;
 }

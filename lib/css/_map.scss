@@ -8,16 +8,18 @@ $mapHeight: 78.5vh;
     }
 }
 
-#map-title {
+#map-title-form {
     grid-area: mapTitle;
-    background: $secondaryBackground;
-    padding: 1%;
-    border-radius: 10px;
-    @include text($size:1.1em, $color: aquamarine);
-    @media(max-width: $mobileMaxWidth) {
-        text-align: center;
-        font-size: 1em;
-    }
+    #map-title {
+        background: $secondaryBackground;
+        padding: 1%;
+        border-radius: 10px;
+        @include text($size:1.1em, $color: aquamarine);
+        @media(max-width: $mobileMaxWidth) {
+            text-align: center;
+            font-size: 1em;
+        }
+    }   
 }
 
 .map-container {
