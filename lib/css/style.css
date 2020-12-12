@@ -131,8 +131,8 @@ nav h1 {
   border-radius: 50%;
   width: 120px;
   height: 120px;
-  -webkit-animation: spin 400ms linear infinite;
-          animation: spin 400ms linear infinite;
+  -webkit-animation: spin 250ms linear infinite;
+          animation: spin 250ms linear infinite;
 }
 
 @media (max-width: 1050px) {

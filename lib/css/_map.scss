@@ -59,7 +59,7 @@ $mapHeight: 78.5vh;
         border-radius: 50%;
         width: 120px;
         height: 120px;
-        animation: spin 400ms linear infinite;
+        animation: spin 250ms linear infinite;
 
         @media(max-width: $mobileMaxWidth) {
             left: 35%;
