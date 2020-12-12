@@ -1,7 +1,21 @@
-nav h1{
-    @include text($size: 1.6em, $weight: 200, $spacing:0.0.5em);
-    text-transform: uppercase;
-    font-family: 'Source Serif Pro';
+nav {
+    h1 {
+        @include text($size: 1.6em, $weight: 200, $spacing:0.0.5em);
+        text-transform: uppercase;
+        font-family: 'Source Serif Pro';
+
+            
+        @media(max-width: $mobileMaxWidth) {
+            margin-top: 0.5em;
+            font-size: 1.25em;
+        }
+    }
+
+    p {
+        @media(max-width: $mobileMaxWidth) {
+            margin: 0 !important;
+        }
+    }
 }
 
 #nav-about {
