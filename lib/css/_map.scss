@@ -39,6 +39,10 @@ $mapHeight: 78.5vh;
             fill: white;
             text-align: center;
         }
+
+        path .active {
+            fill: aquamarine;
+        }
     }
 
     #tooltip {

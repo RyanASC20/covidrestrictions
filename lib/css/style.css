@@ -121,6 +121,10 @@ nav h1 {
   text-align: center;
 }
 
+.map-container svg path .active {
+  fill: aquamarine;
+}
+
 .map-container #tooltip {
   font-family: "Nunito";
   color: white;
