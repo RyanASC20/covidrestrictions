@@ -121,8 +121,19 @@ nav h1 {
   text-align: center;
 }
 
-.map-container svg path .active {
-  fill: aquamarine;
+.map-container svg .county {
+  stroke: lightgrey;
+  stroke-width: 0.2;
+}
+
+.map-container svg .state {
+  fill: none;
+  stroke: white;
+}
+
+.map-container svg .active {
+  stroke: aquamarine;
+  stroke-width: 2;
 }
 
 .map-container #tooltip {

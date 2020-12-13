@@ -40,8 +40,20 @@ $mapHeight: 78.5vh;
             text-align: center;
         }
 
-        path .active {
-            fill: aquamarine;
+        .county {
+            // fill: lightgreen;
+            stroke: lightgrey;
+            stroke-width: 0.2;
+        }
+
+        .state {
+            fill: none;
+            stroke: white;
+        }
+
+        .active {
+            stroke: aquamarine;
+            stroke-width: 2;
         }
     }
 
