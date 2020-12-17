@@ -3,8 +3,9 @@ $mapHeight: 78.5vh;
 
 @mixin responsiveMap {
     @media(max-width: $mobileMaxWidth) {
-        width: 100vw;
-        height: 40vh;
+        margin: auto;
+        width: 95vw;
+        // height: 65vh;
     }
 }
 
@@ -89,9 +90,4 @@ $mapHeight: 78.5vh;
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
-
-    // @media(max-width: $mobileMaxWidth) {
-    //     // width: 100%;
-    //     height: 40vh;
-    // }
 }

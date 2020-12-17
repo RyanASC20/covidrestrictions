@@ -93,8 +93,8 @@ nav h1 {
 
 @media (max-width: 1050px) {
   .map-container {
-    width: 100vw;
-    height: 40vh;
+    margin: auto;
+    width: 95vw;
   }
 }
 
@@ -105,8 +105,8 @@ nav h1 {
 
 @media (max-width: 1050px) {
   .map-container svg {
-    width: 100vw;
-    height: 40vh;
+    margin: auto;
+    width: 95vw;
   }
 }
 
