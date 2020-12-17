@@ -6,7 +6,8 @@ $RED: rgb(255, 116, 116);
 $GREEN: rgb(107, 250, 107);
 $highlight: rgb(251, 127, 255);
 
-$mobileMaxWidth: 1050px;
+$mobileMaxWidth: 800px;
+$tabletMaxWidth: 1050px;
 $mobileFormWidth: 80vw;
 
 @mixin hover {
@@ -59,13 +60,23 @@ body {
     grid-gap: 1em;
     margin: 0 5%;
 
+    @media(max-width: $tabletMaxWidth) {
+        margin: 0;
+        grid-template-columns: repeat(2, 1fr);
+        // grid-template-rows: repeat(3, 1fr);
+        grid-template-areas: 
+            "mapTitle search"
+            "map map"
+            "info info";
+    }
+
     @media(max-width: $mobileMaxWidth) {
         margin: 0;
         grid-template-columns: 1fr;
         // grid-template-rows: repeat(3, 1fr);
         grid-template-areas: 
-            "search"
             "mapTitle"
+            "search"
             "map"
             "info";
     }

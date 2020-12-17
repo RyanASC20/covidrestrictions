@@ -1,11 +1,19 @@
 $mapWidth: 55vw;
 $mapHeight: 78.5vh;
 
-@mixin responsiveMap {
-    @media(max-width: $mobileMaxWidth) {
+@mixin tabletMap {
+    @media(max-width: $tabletMaxWidth) {
         margin: auto;
         width: 95vw;
-        // height: 65vh;
+        height: 60vh;
+    }
+}
+
+@mixin phoneMap() {
+    @media(max-width: $mobileMaxWidth) {
+        margin: 0;
+        width: 95vw;
+        height: 40vh;
     }
 }
 
@@ -16,7 +24,7 @@ $mapHeight: 78.5vh;
         padding: 1%;
         border-radius: 10px;
         @include text($size:1.1em, $color: aquamarine);
-        @media(max-width: $mobileMaxWidth) {
+        @media(max-width: $tabletMaxWidth) {
             text-align: center;
             font-size: 1em;
         }
@@ -25,16 +33,22 @@ $mapHeight: 78.5vh;
 
 .map-container {
     grid-area: map;
-    @include responsiveMap();
+    @include tabletMap();
     background: $secondaryBackground;
     border-radius: 10px;
     position: relative;
+    @media (max-width: $mobileMaxWidth) {
+        width: 100vw;
+        height: 40vh;
+        margin: 0;
+        padding: 0;
+    }
 
     svg {
         padding: 1%;
         height: $mapHeight;
-
-        @include responsiveMap();
+        @include tabletMap();
+        @include phoneMap();
 
         text {
             @include text(Nunito, $size:12px, $weight:200);

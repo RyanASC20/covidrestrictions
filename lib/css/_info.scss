@@ -12,7 +12,7 @@
             border-radius: 5px;
             height: $contentHeight;
             overflow-y: auto;
-            @media(max-width: $mobileMaxWidth) {
+            @media(max-width: $tabletMaxWidth) {
                 height: auto;
             }
 
