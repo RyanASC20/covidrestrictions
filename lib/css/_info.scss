@@ -1,5 +1,6 @@
 .info {
     grid-area: info;
+    max-width: 100vw;
     .info-container, .about-container {
         display: none;
         font-size: 0.95em;
@@ -56,11 +57,11 @@
 
             .info-general-container {
                 @include text($size: 1.1em, $weight: 200);
-                display: flex;
-                justify-content: space-between;
 
                 .quick-info {
                     @include text($color:aquamarine, $weight: 400);
+                    display: flex;
+                    justify-content: space-between;
                 }
             }
 

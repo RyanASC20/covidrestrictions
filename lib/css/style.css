@@ -88,25 +88,25 @@ nav h1 {
   grid-area: map;
   background: #272b3d;
   border-radius: 10px;
+  position: relative;
 }
 
 @media (max-width: 1050px) {
   .map-container {
     width: 100vw;
-    height: 35vh;
+    height: 40vh;
   }
 }
 
 .map-container svg {
   padding: 1%;
-  width: 100%;
   height: 78.5vh;
 }
 
 @media (max-width: 1050px) {
   .map-container svg {
     width: 100vw;
-    height: 35vh;
+    height: 40vh;
   }
 }
 
@@ -153,21 +153,14 @@ nav h1 {
 
 .map-container .loader {
   position: absolute;
-  left: 35%;
   top: 45%;
+  left: 45%;
   border-top: 16px solid aquamarine;
   border-radius: 50%;
   width: 120px;
   height: 120px;
   -webkit-animation: spin 250ms linear infinite;
           animation: spin 250ms linear infinite;
-}
-
-@media (max-width: 1050px) {
-  .map-container .loader {
-    left: 35%;
-    top: 35%;
-  }
 }
 
 @-webkit-keyframes spin {
@@ -269,6 +262,7 @@ nav h1 {
   -ms-grid-column: 7;
   -ms-grid-column-span: 3;
   grid-area: info;
+  max-width: 100vw;
 }
 
 .info .info-container, .info .about-container {
@@ -356,12 +350,6 @@ nav h1 {
   font-weight: 200;
   letter-spacing: normal;
   line-height: normal;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 .info .info-container .card .info-general-container .quick-info, .info .about-container .card .info-general-container .quick-info {
@@ -371,6 +359,12 @@ nav h1 {
   font-weight: 400;
   letter-spacing: normal;
   line-height: normal;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .info .info-container .card #source, .info .about-container .card #source {
@@ -407,7 +401,7 @@ body {
 }
 
 .highlight {
-  color: #05ff05;
+  color: #fb7fff;
 }
 
 .subheading {

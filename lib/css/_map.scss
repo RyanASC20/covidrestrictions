@@ -4,7 +4,7 @@ $mapHeight: 78.5vh;
 @mixin responsiveMap {
     @media(max-width: $mobileMaxWidth) {
         width: 100vw;
-        height: 35vh;
+        height: 40vh;
     }
 }
 
@@ -27,12 +27,13 @@ $mapHeight: 78.5vh;
     @include responsiveMap();
     background: $secondaryBackground;
     border-radius: 10px;
+    position: relative;
 
     svg {
         padding: 1%;
-        @include responsiveMap();
-        width: 100%;
         height: $mapHeight;
+
+        @include responsiveMap();
 
         text {
             @include text(Nunito, $size:12px, $weight:200);
@@ -69,22 +70,28 @@ $mapHeight: 78.5vh;
 
     .loader {
         position: absolute;
-        left: 35%;
         top: 45%;
+        left: 45%;
+        // transform: translate(-50%, -50%);
         border-top: 16px solid aquamarine; 
         border-radius: 50%;
         width: 120px;
         height: 120px;
         animation: spin 250ms linear infinite;
 
-        @media(max-width: $mobileMaxWidth) {
-            left: 35%;
-            top: 35%;
-        }
+        // @media(max-width: $mobileMaxWidth) {
+        //     left: 35%;
+        //     top: 35%;
+        // }
     }
     
     @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
     }
+
+    // @media(max-width: $mobileMaxWidth) {
+    //     // width: 100%;
+    //     height: 40vh;
+    // }
 }
