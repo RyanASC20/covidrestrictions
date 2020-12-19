@@ -27,8 +27,15 @@ const updateCsv = async() => {
     await csvWriter.writeRecords(records);
 }
 
-export async function handler(e, context) {
-    // if (e.httpMethod != 'POST') return {statusCode: 404}
-    await updateCsv();
-    return {statusCode: 200}
-}
+// export async function handler(e, context) {
+//     // if (e.httpMethod != 'POST') return {statusCode: 404}
+//     // await updateCsv();
+//     return {statusCode: 200}
+// }
+
+export async function handler(event, context) {
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ message: `Hello world ${Math.floor(Math.random() * 10)}` })
+    };
+  }
