@@ -1,0 +1,33 @@
+{
+  "name": "covidrestrictions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "d3": "^6.3.1",
+    "express": "^4.17.1",
+    "netlify-lambda": "^2.0.2",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/functions/update.js",
+    "build:lambda": "netlify-lambda build src/functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RyanASC20/covidrestrictions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RyanASC20/covidrestrictions/issues"
+  },
+  "homepage": "https://github.com/RyanASC20/covidrestrictions#readme"
+}
