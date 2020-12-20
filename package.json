@@ -19,8 +19,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon src/functions/update.js",
-    "build:lambda": "netlify-lambda build src/functions",
-    "serve:lambda": "netlify-lambda serve src/functions"
+    "updateData": "node src/functions/update.js"
   },
   "repository": {
     "type": "git",
