@@ -6,20 +6,22 @@ const dayDifference = (current, target) => (current.getTime() - target.getTime()
 const cleanData = (res, currentDate) => {
     if (res.county == 'New York City') {res.fips = 'NYC'}
     let difference = Math.floor(dayDifference(currentDate, new Date(res.date))); 
-    let weeklyIncrease = '-';
-    let increase = '-';
-    if (difference == 0 && weekData[13][res.fips]) {weeklyIncrease = res.cases - weekData[6][res.fips].cases;}
-    if (difference < 13 && weekData[difference + 1][res.fips]) {increase = res.cases - weekData[difference + 1][res.fips].cases;}
-    weekData[difference][res.fips] = {
-        date: res.date,
-        state: res.state,
-        countyName: res.county,
-        fips: res.fips,
-        cases: res.cases,
-        deaths: res.deaths,
-        increase,
-        weeklyIncrease
-    };
+    if (difference < 14) {
+        let weeklyIncrease = '-';
+        let increase = '-';
+        if (difference == 0 && weekData[13][res.fips]) {weeklyIncrease = res.cases - weekData[6][res.fips].cases;}
+        if (difference < 13 && weekData[difference + 1][res.fips]) {increase = res.cases - weekData[difference + 1][res.fips].cases;}
+        weekData[difference][res.fips] = {
+            date: res.date,
+            state: res.state,
+            countyName: res.county,
+            fips: res.fips,
+            cases: res.cases,
+            deaths: res.deaths,
+            increase,
+            weeklyIncrease
+        };
+    }
 }
 
 
@@ -39,11 +41,12 @@ const mapData = async guidelineData => {
 
     const DATA_URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv';
     // const DATA_URL = '../../assets/covidData.csv';
-    let START_DATE = new Date(new Date().getTime() - (36 * 60 * 60 * 1000));
-    console.log(START_DATE);
+    let START_DATE = new Date(new Date().getTime() - (48 * 60 * 60 * 1000));
 
     await d3.csv(DATA_URL, res => cleanData(res, START_DATE));
     const populationData = await d3.csv('../../../assets/pop_est_2019.csv');
+
+    console.log(weekData);
 
     selectMapType(weekData, guidelineData, populationData);
     let {WIDTH, HEIGHT, g, path, geometries} = await drawMap(weekData, guidelineData, populationData);
