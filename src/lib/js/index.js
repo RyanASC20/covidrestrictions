@@ -38,7 +38,7 @@ const selectMapType = (weekData, guidelineData, populationData) => {
 const mapData = async guidelineData => {
 
     // const DATA_URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv';
-    const DATA_URL = '../../functions/update/covidData.csv';
+    const DATA_URL = '../../../assets/covidData.csv';
     let START_DATE = new Date(new Date().getTime() - (36 * 60 * 60 * 1000));
     console.log(START_DATE);
 
