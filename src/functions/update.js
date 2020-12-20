@@ -20,7 +20,7 @@ const getData = async () => {
 const updateCsv = async() => {
     await getData();
     const csvWriter = createCsvWriter({
-        path: './covidData.csv',
+        path: 'https://www.covidmapdata.com/assets/covidData.csv',
         header: ['date', 'county', 'state', 'fips', 'cases', 'deaths']
     });
     await csvWriter.writeRecords(records);
