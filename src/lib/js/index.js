@@ -264,6 +264,7 @@ const drawMap = async (covidData, guidelineData, populationData, type='casesPerC
 
 
 const main = async() => {
+    await fetch('/.netlify/functions/update');
     const GUIDELINE_DATA = 'https://raw.githubusercontent.com/COVID19StatePolicy/SocialDistancing/master/data/USstatesCov19distancingpolicy.csv';
     const d = await d3.csv(GUIDELINE_DATA, function(res) { 
         if (res.DateEased == '' && res.DateEnded == '') {

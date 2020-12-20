@@ -1,10 +1,12 @@
 const path = require('path');
 const createCsvWriter = require('csv-writer').createArrayCsvWriter;
 const d3 = require('d3-fetch');
+// const fetch = require('node-fetch');
 if (typeof fetch !== 'function') {
-    global.fetch = require('node-fetch');
+    global.fetch = require('node-fetch').default;
 }
 
+console.log('=========================================;=',__filename);
 let records = [];
 
 const dayDifference = (current, target) => (current.getTime() - target.getTime()) / (1000 * 60 * 60 * 24);
@@ -20,22 +22,21 @@ const getData = async () => {
 
 const updateCsv = async() => {
     await getData();
+    console.log(path.resolve('.', '/assets'));
     const csvWriter = createCsvWriter({
-        path: path.resolve(__dirname, '../../assets/covidData.csv'),
+        path: path.resolve(__dirname, 'Users/Ryan/Desktop/covidrestrictions/assets/covidData.csv'),
         header: ['date', 'county', 'state', 'fips', 'cases', 'deaths']
     });
     await csvWriter.writeRecords(records);
 }
 
-export async function handler(e, context) {
-    // if (e.httpMethod != 'POST') return {statusCode: 404}
+
+export async function handler(event, context) {
     await updateCsv();
-    return {statusCode: 200}
+    return {
+      statusCode: 200,
+      body: 'hello'
+    };
 }
 
-// export async function handler(event, context) {
-//     return {
-//       statusCode: 200,
-//       body: JSON.stringify({ message: `Hello world ${Math.floor(Math.random() * 10)}` })
-//     };
-//   }
+
