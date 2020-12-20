@@ -24,7 +24,8 @@ const updateCsv = async() => {
     await getData();
     console.log(path.resolve('.', '/assets'));
     const csvWriter = createCsvWriter({
-        path: path.resolve(__dirname, 'Users/Ryan/Desktop/covidrestrictions/assets/covidData.csv'),
+        // path: path.resolve(__dirname, 'Users/Ryan/Desktop/covidrestrictions/assets/covidData.csv'),
+        path: __dirname,
         header: ['date', 'county', 'state', 'fips', 'cases', 'deaths']
     });
     await csvWriter.writeRecords(records);
