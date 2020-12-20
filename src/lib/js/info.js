@@ -96,7 +96,8 @@ const generalInfo = selection => {
             `<p>Population: <span class="highlight">${parseInt(selection.population).toLocaleString()}</span></p>
             <p>Cases Per Capita: <span class="highlight">${selection.casesPerCapita}</span></p>
             <p>Daily Increase/100k: <span class="highlight">${selection.dailyIncrease100k}</span></p>
-            <p>Weekly Increase Per Capita: <span class="highlight">${selection.weeklyIncreasePerCapita}</span></p>`
+            <p>Weekly Increase Per Capita: <span class="highlight">${selection.weeklyIncreasePerCapita}</span></p>
+            <p>Death Rate: <span class="highlight">${selection.deathsPerCase}%</span></p>`
         )
     
 }

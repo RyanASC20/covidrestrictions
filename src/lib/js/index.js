@@ -39,12 +39,19 @@ const selectMapType = (weekData, guidelineData, populationData) => {
 
 const mapData = async guidelineData => {
 
-    // const DATA_URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv';
-    const DATA_URL = '../../assets/covidData.csv';
+    const DATA_URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv';
+    // const DATA_URL = '../../assets/covidData.csv';
 
     let START_DATE = new Date(new Date().getTime() - (36 * 60 * 60 * 1000));
 
     await d3.csv(DATA_URL, res => cleanData(res, START_DATE));
+    console.log(weekData[0])
+    if (Object.keys(weekData[0]).length === 0) {
+        alert("Most recent data unavailable. Reverting to latest available data.");
+        START_DATE = new Date(new Date().getTime() - (36 * 60 * 60 * 1000));
+        await d3.csv(DATA_URL, res => cleanData(res, START_DATE));
+    }
+    
     const populationData = await d3.csv('../../../assets/pop_est_2019.csv');
 
     console.log(weekData);
@@ -163,16 +170,11 @@ const drawMap = async (covidData, guidelineData, populationData, type='casesPerC
         weeklyIncreasePerCapita: [0, 0.002, 0.005, 0.01, 0.015, 0.02],
         dailyIncrease100k: [0, 10, 70, 160, 210, 260, 310],
         deathsPerCase: [0, 0.002, 0.005, 0.02, 0.03, 0.04]
-        // casesPerCapita: [0, 0.15],
-        // weeklyIncreasePerCapita: [0,0.02],
-        // dailyIncrease100k: [0, 310],
-        // deathsPerCase: [0, 0.04]
     }
     const COLOR_DOMAIN = COLOR_OPTIONS[type];
     console.log(day, type)
     console.log(type)
     const COLOR_RANGE = ['#F2DF91', '#FFA83E', '#FD6A0B', '#D8382E', '#AF1C43', '#701547'];
-    // const COLOR_RANGE = ['#F2DF91', '#D8382E']
     let geometries = {};
 
     const c = d3.scaleLinear()
