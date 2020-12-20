@@ -38,5 +38,3 @@ export async function handler(event, context) {
       statusCode: 200,
     };
 }
-
-
