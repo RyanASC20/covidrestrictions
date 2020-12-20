@@ -20,16 +20,16 @@ const getData = async () => {
 const updateCsv = async() => {
     await getData();
     const csvWriter = createCsvWriter({
-        path: './covidData.csv',
+        path: path.resolve(__dirname, '../../assets/covidData.csv'),
         header: ['date', 'county', 'state', 'fips', 'cases', 'deaths']
     });
     await csvWriter.writeRecords(records);
 }
 
-
-export async function handler(event, context) {
-    // await updateCsv();
-    return {
-      statusCode: 200,
-    };
-}
+updateCsv();
+// export async function handler(event, context) {
+//     await updateCsv();
+//     return {
+//       statusCode: 200,
+//     };
+// }
