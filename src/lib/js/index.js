@@ -41,7 +41,7 @@ const mapData = async guidelineData => {
 
     const DATA_URL = 'https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv';
     // const DATA_URL = '../../assets/covidData.csv';
-    let START_DATE = new Date(new Date().getTime() - (48 * 60 * 60 * 1000));
+    let START_DATE = new Date(new Date().getTime() - (36 * 60 * 60 * 1000));
 
     await d3.csv(DATA_URL, res => cleanData(res, START_DATE));
     const populationData = await d3.csv('../../../assets/pop_est_2019.csv');
