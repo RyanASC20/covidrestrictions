@@ -28,7 +28,7 @@ const updateCsv = async() => {
 
 
 export async function handler(event, context) {
-    await updateCsv();
+    // await updateCsv();
     return {
       statusCode: 200,
     };
