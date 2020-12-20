@@ -1,12 +1,9 @@
 const path = require('path');
 const createCsvWriter = require('csv-writer').createArrayCsvWriter;
 const d3 = require('d3-fetch');
-// const fetch = require('node-fetch');
 if (typeof fetch !== 'function') {
     global.fetch = require('node-fetch').default;
 }
-
-console.log('=========================================;=',__filename);
 let records = [];
 
 const dayDifference = (current, target) => (current.getTime() - target.getTime()) / (1000 * 60 * 60 * 24);
@@ -22,9 +19,7 @@ const getData = async () => {
 
 const updateCsv = async() => {
     await getData();
-    console.log(path.resolve('.', '/assets'));
     const csvWriter = createCsvWriter({
-        // path: path.resolve(__dirname, 'Users/Ryan/Desktop/covidrestrictions/assets/covidData.csv'),
         path: 'covidmapdata.com/assets/covidData.csv',
         header: ['date', 'county', 'state', 'fips', 'cases', 'deaths']
     });
