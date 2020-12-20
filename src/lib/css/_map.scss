@@ -46,9 +46,11 @@ $mapHeight: 78.5vh;
 
     svg {
         padding: 1%;
-        height: $mapHeight;
         @include tabletMap();
         @include phoneMap();
+        height: $mapHeight;
+        width: 100%;
+
 
         text {
             @include text(Nunito, $size:12px, $weight:200);
