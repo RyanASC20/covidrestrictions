@@ -440,7 +440,8 @@ body {
   display: grid;
   -ms-grid-columns: (1fr)[9];
       grid-template-columns: repeat(9, 1fr);
-      grid-template-areas: "mapTitle mapTitle mapTitle mapTitle mapTitle search info info info" "map map map map map map info info info";
+      grid-template-areas: "mapTitle mapTitle mapTitle mapTitle mapTitle search info info info"
+ "map map map map map map info info info";
   grid-gap: 1em;
   margin: 0 5%;
 }
@@ -450,7 +451,9 @@ body {
     margin: 0;
     -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
-        grid-template-areas: "mapTitle search" "map map" "info info";
+        grid-template-areas: "mapTitle search"
+ "map map"
+ "info info";
   }
 }
 
@@ -459,7 +462,10 @@ body {
     margin: 0;
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-        grid-template-areas: "mapTitle" "search" "map" "info";
+        grid-template-areas: "mapTitle"
+ "search"
+ "map"
+ "info";
   }
 }
 /*# sourceMappingURL=style.css.map */
