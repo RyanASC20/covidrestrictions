@@ -186,7 +186,7 @@ const drawMap = async (covidData, guidelineData, populationData, type='casesPerC
         .attr('viewBox', `0 0 ${WIDTH} ${HEIGHT}`)
 
     const zoom = d3.zoom()
-            .scaleExtent([1, 7])
+            .scaleExtent([1, 10])
             .translateExtent([[0, 0], [WIDTH, HEIGHT]])
             .on('zoom', e => g.attr('transform', e.transform));
     svg.call(zoom)
