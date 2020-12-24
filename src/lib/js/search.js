@@ -100,7 +100,7 @@ const handleSearch = (covidData, guidelineData, width, height, g, path, geometri
             let stateGuidelines = guidelineData.filter(e => e.state == selection.state);
             info(selection, covidData, stateGuidelines);
         } else {
-            alert('County not found. Please enter in form "county, state"');
+            alert('County not found. Please enter in form "county, state", or choose from the options.');
         }
         search_input.value = '';
     });
