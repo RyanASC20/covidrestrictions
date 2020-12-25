@@ -1,6 +1,5 @@
 let centered;
 const weekData = [{},{},{},{},{},{},{},{},{},{},{},{},{},{}];
-// const withinWeek = (current, target) => current.getTime() - target.getTime() <= 14 * 24 * 60 * 60 * 1000;
 const dayDifference = (current, target) => (current.getTime() - target.getTime()) / (1000 * 60 * 60 * 24);
 
 const cleanData = (res, currentDate) => {

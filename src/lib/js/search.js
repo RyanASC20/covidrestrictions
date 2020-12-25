@@ -1,6 +1,6 @@
 function autocomplete(inp, arr) {
 
-    var currentFocus;
+    let currentFocus;
     const MAX_SUGGESTIONS = 100;
     inp.addEventListener("input", function(e) {
 
@@ -20,7 +20,7 @@ function autocomplete(inp, arr) {
                 break;
             }
             count++;
-            b = document.createElement("DIV");
+            b = document.createElement("div");
 
             b.textContent += arr[i];
 

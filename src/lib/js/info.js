@@ -79,15 +79,7 @@ const dataTable = (fips, covidData) => {
 const generalInfo = selection => {
     $('#info-county').text(`${selection.countyName}, `);
         $('#info-state').text(`${selection.state}`);
-        let caseCounter = 0;
-        let interval = setInterval(() => {
-            if (caseCounter > selection.cases) {
-                caseCounter = selection.cases
-                clearInterval(interval);
-            }
-            $('#info-cases').text(`${parseInt(caseCounter).toLocaleString()}`);
-            caseCounter += selection.cases / 100;
-        }, 2);
+        $('#info-cases').text(`${parseInt(selection.cases).toLocaleString()}`)
         $('#source').attr('href', sources[selection.state]).text('View Current Travel Advisories Here');
         $('#info-deaths').text(`${parseInt(selection.deaths).toLocaleString()}`);
     
