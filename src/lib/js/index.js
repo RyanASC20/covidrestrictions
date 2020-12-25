@@ -44,7 +44,6 @@ const mapData = async guidelineData => {
     let START_DATE = new Date(new Date().getTime() - (36 * 60 * 60 * 1000));
 
     await d3.csv(DATA_URL, res => cleanData(res, START_DATE));
-    console.log(weekData[0])
     if (Object.keys(weekData[0]).length === 0) {
         alert("Most recent data unavailable. Reverting to latest available data.");
         START_DATE = new Date(new Date().getTime() - (36 * 60 * 60 * 1000));
@@ -52,8 +51,6 @@ const mapData = async guidelineData => {
     }
     
     const populationData = await d3.csv('../../../assets/pop_est_2019.csv');
-
-    console.log(weekData);
 
     selectMapType(weekData, guidelineData, populationData);
     let {WIDTH, HEIGHT, g, path, geometries} = await drawMap(weekData, guidelineData, populationData);
@@ -171,8 +168,6 @@ const drawMap = async (covidData, guidelineData, populationData, type='casesPerC
         deathsPerCase: [0, 0.002, 0.005, 0.02, 0.03, 0.04]
     }
     const COLOR_DOMAIN = COLOR_OPTIONS[type];
-    console.log(day, type)
-    console.log(type)
     const COLOR_RANGE = ['#F2DF91', '#FFA83E', '#FD6A0B', '#D8382E', '#AF1C43', '#701547'];
     let geometries = {};
 

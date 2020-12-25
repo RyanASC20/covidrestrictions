@@ -87,13 +87,14 @@ $mapHeight: 78.5vh;
 
     .loader {
         position: absolute;
+        display: inline-block;
         top: 45%;
         left: 45%;
-        // transform: translate(-50%, -50%);
-        border-top: 16px solid aquamarine; 
+        // transform: translate(300px, 300px);
+        border-top: 4px solid aquamarine; 
         border-radius: 50%;
-        width: 120px;
-        height: 120px;
+        width: 60px;
+        height: 60px;
         animation: spin 250ms linear infinite;
 
         // @media(max-width: $mobileMaxWidth) {
